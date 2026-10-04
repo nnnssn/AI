@@ -1,0 +1,150 @@
+@import "tailwindcss";
+
+@layer base {
+  /* ========================================================= */
+  /* PROFESSIONAL A4 DOCUMENT EXPORT PRINT STYLES              */
+  /* ========================================================= */
+  @media print {
+    /* 1. Standard A4 Page Setup with Official Margins */
+    @page {
+      size: A4 portrait;
+      margin: 15mm 15mm 20mm 15mm;
+    }
+
+    /* 2. Unconstrain Viewport & Root for Multi-Page Flow */
+    html,
+    body,
+    #root {
+      width: 100% !important;
+      height: auto !important;
+      min-height: auto !important;
+      overflow: visible !important;
+      background: #ffffff !important;
+      color: #0f172a !important;
+      font-size: 11pt !important;
+      line-height: 1.5 !important;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
+    /* 3. Hide all UI components and non-document chrome */
+    header,
+    aside,
+    nav,
+    footer,
+    button,
+    input,
+    textarea,
+    select,
+    [role="dialog"],
+    .no-print,
+    .cursor-col-resize,
+    /* Hide left editor pane and pane headers */
+    main > section:first-of-type,
+    main > div.cursor-col-resize,
+    main > section > div.h-10,
+    /* Hide right pane toolbars and tab bars */
+    section > div.shadow-2xs,
+    section > div.shadow-xs,
+    section > div:has(button) {
+      display: none !important;
+    }
+
+    /* 4. Full Canvas Expansion for Right Document Pane */
+    main {
+      display: block !important;
+      width: 100% !important;
+      height: auto !important;
+      min-height: auto !important;
+      overflow: visible !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      background: #ffffff !important;
+    }
+
+    main > section:last-of-type {
+      display: block !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      height: auto !important;
+      min-height: auto !important;
+      overflow: visible !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      background: #ffffff !important;
+      border: none !important;
+    }
+
+    main > section:last-of-type > div {
+      display: block !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      height: auto !important;
+      overflow: visible !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      background: #ffffff !important;
+    }
+
+    /* 5. Document Sheets (A4 Paper emulation to real print) */
+    .w-full.max-w-3xl,
+    .w-full.max-w-4xl,
+    [class*="max-w-3xl"],
+    [class*="max-w-4xl"] {
+      width: 100% !important;
+      max-width: 100% !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      border: none !important;
+      box-shadow: none !important;
+      border-radius: 0 !important;
+      background: #ffffff !important;
+    }
+
+    /* 6. A4 Page Break Management */
+    h1,
+    h2,
+    h3,
+    h4 {
+      break-after: avoid !important;
+      page-break-after: avoid !important;
+      color: #000000 !important;
+    }
+
+    /* Keep exam questions and process activity cards intact across page breaks */
+    .space-y-4 > div,
+    .space-y-3 > div,
+    .space-y-2 > div,
+    .border,
+    table,
+    tr,
+    .divide-y > div {
+      break-inside: avoid !important;
+      page-break-inside: avoid !important;
+    }
+
+    /* Ensure table headers repeat gracefully if spanned */
+    thead {
+      display: table-header-group !important;
+    }
+
+    /* Prevent awkward signature block split at bottom */
+    .grid-cols-2:has(.font-serif),
+    .grid-cols-2.pt-6 {
+      break-inside: avoid !important;
+      page-break-inside: avoid !important;
+      margin-top: 15mm !important;
+    }
+
+    /* Clear shadows and superfluous borders */
+    * {
+      box-shadow: none !important;
+      text-shadow: none !important;
+    }
+
+    /* Don't append URL text after links */
+    a[href]:after {
+      content: none !important;
+    }
+  }
+}

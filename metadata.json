@@ -1,0 +1,8 @@
+{
+  "name": "Remix Remix EdTech Shell - GDPT 2018",
+  "description": "Nền tảng giao diện EdTech chuẩn GDPT 2018: Soạn KHBD 5512, Trình chiếu Slide bài giảng và Ngân hàng đề thi 7991.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
